@@ -1,148 +1,133 @@
-import React, { useEffect, useRef } from 'react';
-import aawazLogo from '../assets/logo.png';
-import facebookImg from '../assets/facebook.png';
-import googleImg from '../assets/googlemap.png';
-import whatsappImg from '../assets/whatsapp.png';
-import footerbgimage from '../assets/ttt.jpg';
-import { Link } from 'react-router-dom';
-import { HiOutlineMail } from 'react-icons/hi';
-import { MdLocationOn } from 'react-icons/md';
-import { BsTelephoneFill } from 'react-icons/bs';
-import img4 from '../assets/linkedin.png';
-import { HiOutlineDevicePhoneMobile } from "react-icons/hi2";
-import { FaWhatsapp } from "react-icons/fa";
-
+import React from "react";
+import { Link } from "react-router-dom";
+import { FaFacebookF, FaInstagram, FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
+import logo from "../assets/logo.png";
+import bgImage from "../assets/syringe.jpg"; // Make sure to import your background image
 
 const Footer = () => {
-  const navItems1 = [
-    { label: "Home", link: "/" },
-    { label: "About", link: "/about" },
-    { label: "Contact", link: "/contact" },
-  ];
-
-  const contactItems = [
-    { icon: <BsTelephoneFill />, link: "tel: +977 01-4534655", label: "01-4534655" },
-    { icon: <FaWhatsapp   />, link: "tel: +977  9801025694", label: "977 9801025694" },
-    { icon: <HiOutlineMail />, link: "mailto:intandemscholars@gmail.com", label: "intandemscholars@gmail.com" },
-    { icon: <MdLocationOn />, label: "Battisputali Marg, Purano Baneshwor, Kathmandu,Nepal" },
-  ];
-
-  const footerRef = useRef(null);
-
-  useEffect(() => {
-    const observerOptions = { threshold: 0.5 };
-    const handleIntersection = (entries) => {
-      entries.forEach((entry) => {
-        entry.target.style.animationPlayState = entry.isIntersecting ? 'running' : 'paused';
-      });
-    };
-    const observer = new IntersectionObserver(handleIntersection, observerOptions);
-    if (footerRef.current) observer.observe(footerRef.current);
-
-    return () => {
-      if (footerRef.current) observer.unobserve(footerRef.current);
-    };
-  }, []);
-
   return (
-    <div
-      className="w-full relative"
+    <footer
+      className="text-white relative"
       style={{
-        backgroundImage: `url(${footerbgimage})`,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
+        backgroundImage: `url(${bgImage})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+        backgroundColor: "#006241", // Fallback color
       }}
     >
-      {/* Darker red overlay */}
-    
+      {/* Smooth Fade-in Effect on Load */}
+      <div className="py-10 px-6 sm:px-12 bg-black bg-opacity-70 animate-fadeIn">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
 
-      <div
-        ref={footerRef}
-        className="flex flex-col gap-2 py-4 px-4 sm:px-7 md:flex-row justify-center items-center md:gap-4 lg:gap-8 relative z-10"
-        style={{
-          animation: 'fadeIn 1s ease forwards',
-          animationPlayState: 'paused',
-        }}
-      >
-        {/* Logo Section */}
-        <div className="flex flex-col items-center ">
-  <Link to="/">
-    <img
-      src={aawazLogo}
-      alt="Intandem Logo"
-      className=" w-[250px] transition-transform duration-700 ease-in-out hover:scale-110 mb-1"
-    />
-  </Link>
-  <div className="flex gap-1 mt-0">
-    <a href="https://www.facebook.com/share/1A6FSDCwy8/?mibextid=LQQJ4d" className="hover:scale-110 transform transition-transform duration-300">
-      <img src={facebookImg} alt="Facebook" className="w-8 h-8" />
-    </a>
-    <a href="https://www.google.com/maps/dir//Intandem+Scholars,+Battisputali+Marg,+Kathmandu+44600/@27.7020787,85.3406429,17z" className="hover:scale-110 transform transition-transform duration-300">
-      <img src={googleImg} alt="Google" className="w-8 h-8" />
-    </a>
-    <a href="https://wa.me/+9779801025694" className="hover:scale-110 transform transition-transform duration-300">
-      <img src={whatsappImg} alt="WhatsApp" className="w-8 h-8" />
-    </a>
-    <a href="https://www.linkedin.com/company/intandemscholars/?originalSubdomain=np"
-    target="_blank" className="hover:scale-110 transform transition-transform duration-300">
-      <img src={img4} alt="Linkedin" className="w-8 h-8" />
-    </a>
-  </div>
-</div>
+          {/* About Section */}
+          <div>
+            <div className="flex items-center gap-2">
+              <img src={logo} alt="Logo" className="h-[120px] w-[130px]" />
+            </div>
+            <div className="flex gap-4 mt-4">
+              <a
+                href="https://www.facebook.com/share/16GUP3t2K6/?mibextid=wwXIfr"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 bg-white rounded-full text-teal-700 hover:bg-teal-500 hover:text-white transition-all duration-300"
+              >
+                <FaFacebookF />
+              </a>
+              <a
+                href="https://www.instagram.com/explore/locations/1337305383009807/enlight-academy/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 bg-white rounded-full text-teal-700 hover:bg-teal-500 hover:text-white transition-all duration-300"
+              >
+                <FaInstagram />
+              </a>
+            </div>
+          </div>
 
-        {/* Quick Links */}
-        <NavSection title="Quick Links" items={navItems1} />
+          {/* Our Courses */}
+          <div>
+            <h2 className="text-xl font-bold mb-4">Our Courses</h2>
+            <ul className="space-y-2 text-sm">
+              {[
+                { title: "PCL In General Medicine (HA)", link: "/pcl-general-medicine" },
+                { title: "Diploma In Pharmacy", link: "/diploma-pharmacy" },
+                { title: "PCL In Nursing", link: "/pcl-nursing" },
+              ].map((course, index) => (
+                <li key={index}>
+                  <Link to={course.link} className="hover:text-green-300 transition-all duration-300">
+                    {course.title}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
 
-        {/* Contact Info */}
-        <div className="flex flex-col items-center font-semibold text-[16px] gap-2">
-         
-          {contactItems.map((item, index) => (
-            <ContactItem key={index} icon={item.icon} link={item.link} label={item.label} />
-          ))}
+          {/* Helpful Links */}
+          <div>
+            <h2 className="text-xl font-bold mb-4">Helpful Links</h2>
+            <ul className="space-y-2 text-sm">
+              {["About Us", "Contact Us", "Gallery"].map((link, index) => (
+                <li key={index}>
+                  <Link
+                    to={`/${link.toLowerCase().replace(/\s+/g, "-")}`}
+                    className="hover:text-green-300 transition-all duration-300"
+                  >
+                    {link}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Contact Info */}
+          <div>
+            <h2 className="text-xl font-bold mb-4">Contact Us</h2>
+            <ul className="space-y-4 text-sm">
+              <li className="flex items-center gap-2">
+                <MdEmail className="text-lg text-green-300" />
+                <a href="mailto:hvtcampus@gmail.com" className="hover:text-green-300 transition-all duration-300">
+                  hvtcampus@gmail.com
+                </a>
+              </li>
+              <li className="flex flex-col sm:flex-row sm:items-center gap-2">
+                <FaPhoneAlt className="text-lg text-green-300" />
+                <div className="flex flex-col">
+                  <a href="tel:+9779809494619" className="hover:text-green-300 transition-all duration-300">
+                    +977 9809494619
+                  </a>
+                  <a href="tel:+015365755" className="hover:text-green-300 transition-all duration-300">
+                    01 5365755
+                  </a>
+                </div>
+              </li>
+              <li className="flex items-center gap-2">
+                <FaMapMarkerAlt className="text-lg text-green-300" />
+                <span className="hover:text-green-300 transition-all duration-300">
+                  Putalisadak, Kathmandu, Nepal
+                </span>
+              </li>
+            </ul>
+            <Link
+              to="/contact-us"
+              className="inline-block mt-4 bg-green-500 text-white px-4 py-2 rounded-lg hover:bg-green-600 transition-all duration-300"
+            >
+              Contact Us
+            </Link>
+          </div>
         </div>
       </div>
 
-      {/* Footer Bottom */}
-      <div className="text-center py-2 font-semibold text-gray-800 bg-[#1FD1D7]">
-        <span>&copy; 2025 Intandem Scholars, Developed & Design by{" "}
-          <a href="https://www.cloudsnepalweb.com/" target="_blank" rel="noopener noreferrer">
-            Clouds Nepal Web Pvt. Ltd.
-          </a>
-        </span>
+      {/* Bottom Section */}
+      <div className="bg-blue-800 bg-opacity-80 text-center py-4">
+        <p className="text-sm">
+          © {new Date().getFullYear()} Holy Vision Technical Campus. All Rights Reserved. Designed by{" "}
+          <span className="font-bold hover:text-green-300 transition-all duration-300">Clouds Nepal Web</span>.
+        </p>
       </div>
-
-      {/* Inline CSS for Custom Animations */}
-      <style>{`
-        @keyframes fadeIn {
-          0% { opacity: 0; transform: translateY(30px); }
-          100% { opacity: 1; transform: translateY(0); }
-        }
-      `}</style>
-    </div>
+    </footer>
   );
 };
-
-const NavSection = ({ items }) => (
-  <div className="flex flex-col items-center font-semibold text-[16px] gap-2">
-    {items.map((item, index) => (
-      <NavItem key={index} link={item.link} label={item.label} />
-    ))}
-  </div>
-);
-
-const NavItem = ({ link, label }) => (
-  <div className="flex gap-2 items-center">
-    <Link to={link} className="text-gray-700 hover:text-gray-500 transition-colors duration-300">
-      {label}
-    </Link>
-  </div>
-);
-
-const ContactItem = ({ icon, link, label }) => (
-  <div className="flex gap-2 items-center text-gray-800 hover:text-gray-500 transition-colors duration-300">
-    {icon}
-    {link ? <a href={link}>{label}</a> : <span>{label}</span>}
-  </div>
-);
 
 export default Footer;

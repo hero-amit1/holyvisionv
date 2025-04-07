@@ -11,7 +11,7 @@ import usaFlag from "../assets/syringe.jpg";
 
 
 
-const StudyDestinations = () => {
+const CourseDetails = () => {
   const [visibleCards, setVisibleCards] = useState([]);
 
   useEffect(() => {
@@ -41,7 +41,7 @@ const StudyDestinations = () => {
       title: " PCL In General Medicine (HA)",
       description:
        "Step into the world of primary healthcare with PCL in General Medicine (HA) at HVTC — a dynamic program focused on clinical proficiency, preventive care, and hands-on experience to prepare versatile Health Assistants ready to serve communities.",
-      link: "/study-in-australia",
+      link: "/pcl-in-general-medicine",
     },
     {
       image: canadaImage,
@@ -49,7 +49,7 @@ const StudyDestinations = () => {
       title: "Diploma in Pharmacy ",
       description:
         "Kickstart your pharmacy career with D. Pharm at HVTC — a future-ready program combining clinical skills, pharmaceutical science, and industry exposure to shape confident, competent healthcare professionals.",
-      link: "/study-in-canada",
+      link: "diploma-in-pharmacy",
     },
     {
       image: usaImage,
@@ -57,7 +57,7 @@ const StudyDestinations = () => {
       title: "PCL In Nursing",
       description:
       "Begin your journey in healthcare with PCL in Nursing at HVTC — a comprehensive program blending compassionate care, clinical expertise, and real-world training to nurture skilled and empathetic nursing professionals.",
-      link: "/study-in-usa",
+      link: "/pcl-in-nursing",
     },
     
   
@@ -164,4 +164,4 @@ const StudyDestinations = () => {
   );
 };
 
-export default StudyDestinations;
+export default CourseDetails;

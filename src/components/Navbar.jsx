@@ -12,19 +12,18 @@ import img3 from '../assets/whatsapp.png';
 import img4 from '../assets/linkedin.png';
 
 const services = [
-  { path: "/services/university-selection", label: "About Us" },
-  { path: "/services/course-guidance", label: "FAQs" },
-  { path: "/services/scholarship-assistance", label: "Our Facilities" },
-  { path: "/services/admissions-counseling", label: "Apply Online" },
-  { path: "/services/visa-processing", label: "Our Team" },
-  { path: "/services/academic-planning", label: "Gallery" },
+
+
+  
+ 
+  
   
 ];
 
 const abroad = [
-  { path: '/study-in-usa', label: 'PCL In General Medicine (HA)' },
-  { path: '/study-in-australia', label: 'Diploma In Pharmacy' },
-  { path: '/study-in-canada', label: 'PCL IN NURSING ' },
+  { path: '/pcl-in-general-medicine', label: 'PCL In General Medicine (HA)' },
+  { path: '/diploma-in-pharmacy', label: 'Diploma In Pharmacy' },
+  { path: '/pcl-in-nursing', label: 'PCL IN NURSING ' },
 
 ];
 
@@ -32,6 +31,7 @@ const navLinks = [
   
  
   { path: '/contact', label: 'CONTACT US' },
+  { path: '/gallery', label: 'GALLERY' },
 ];
 
 const Navbar = () => {
@@ -116,30 +116,11 @@ const Navbar = () => {
           <Link to="/" className="text-[#099BA4] font-medium hover:text-[#038A58]">
             Home
           </Link>
-          <div
-            className="relative text-gray-700 cursor-pointer hover:text-[#038A58]"
-            onClick={toggleDropdown}
-          >
-            <div className="flex items-center gap-1">
-              <span>ABOUT</span>
-              {showDropdown ? <AiOutlineUp /> : <AiOutlineDown />}
-            </div>
-            {showDropdown && (
-              <div className="absolute top-12 bg-white p-2 grid grid-cols-1 sm:grid-cols-2 gap-2 z-[1] shadow-lg rounded-lg w-[250px]">
-                {services.map(({ path, label }) => (
-                  <Link
-                    key={path}
-                    to={path}
-                    className="block bg-gray-100 hover:bg-[#07A2BB] text-gray-700 text-sm text-center py-2 px-2 rounded-md shadow transition-all"
-                    onClick={() => setShowDropdown(false)}
-                  >
-                    {label}
-                  </Link>
-                ))}
-              </div>
-            )}
-          </div>
-
+          
+          <Link to="/about" className=" text-gray-700 hover:text-[#07A2BB]">
+            About
+          </Link>
+         
 
           <div
             className="relative text-gray-700 cursor-pointer hover:text-[#038A58]"
