@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { FaFacebookF, FaInstagram, FaPhoneAlt, FaMapMarkerAlt } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import logo from "../assets/finallogo2.png";
-import bgImage from "../assets/background.jpg"; // Make sure the image exists
+import bgImage from "../assets/finalfooter.jpg"; // Make sure the image exists
 
 const Footer = () => {
   return (
@@ -25,24 +25,7 @@ const Footer = () => {
             <div className="flex items-center gap-2">
               <img src={logo} alt="Logo" className="h-[100px] w-[120px]" />
             </div>
-            <div className="flex gap-4 mt-4">
-              <a
-                href="https://www.facebook.com/share/1DvKTYh2j5/?mibextid=wwXIfr"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 bg-white rounded-full text-teal-700 hover:bg-teal-500 hover:text-white transition-all duration-300"
-              >
-                <FaFacebookF />
-              </a>
-              <a
-                href="https://www.instagram.com/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="p-2 bg-white rounded-full text-teal-700 hover:bg-teal-500 hover:text-white transition-all duration-300"
-              >
-                <FaInstagram />
-              </a>
-            </div>
+           
           </div>
 
           {/* Our Courses */}
@@ -53,6 +36,7 @@ const Footer = () => {
                 { title: "PCL In General Medicine (HA)", link: "/pcl-in-general-medicine" },
                 { title: "Diploma In Pharmacy", link: "/diploma-in-pharmacy" },
                 { title: "PCL In Nursing", link: "/pcl-in-nursing" },
+                { title: "Caregiver Program", link: "/caregiver-program" },
               ].map((course, index) => (
                 <li key={index}>
                   <Link to={course.link} className="hover:text-green-300 transition-all duration-300">

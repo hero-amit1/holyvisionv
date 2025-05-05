@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
@@ -21,7 +21,11 @@ const containerVariants = {
 // Item animation
 const itemVariants = {
   hidden: { opacity: 0, y: 40 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.6, type: "spring", stiffness: 100 } },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, type: "spring", stiffness: 100 },
+  },
 };
 
 // Hover effect
@@ -35,27 +39,31 @@ const hoverEffect = {
 };
 
 export default function AboutPage() {
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
   return (
     <>
-     
-             <Navbar />
-           
+      <Navbar />
+
       <motion.div
-        className="p-6 space-y-16 max-w-7xl mx-auto pt-[140px]" 
+        className="p-6 space-y-16 max-w-7xl mx-auto pt-[140px]"
         variants={containerVariants}
         initial="hidden"
         animate="show"
       >
         {/* Hero Section */}
         <motion.div variants={itemVariants} className="text-center space-y-4">
-          <motion.h1
-            className="text-5xl font-extrabold text-blue-700 drop-shadow-md"
-            initial={{ scale: 0.9, opacity: 0 }}
-            animate={{ scale: 1, opacity: 1 }}
-            transition={{ delay: 0.2, type: "spring" }}
-          >
-            Welcome to Holy Vision Technical Campus
-          </motion.h1>
+        <motion.h1
+  className="text-5xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-700 via-yellow-400 to-red-500 "
+  initial={{ scale: 0.9, opacity: 0 }}
+  animate={{ scale: 1, opacity: 1 }}
+  transition={{ delay: 0.2, type: "spring" }}
+>
+  Welcome to Holy Vision Technical Campus
+</motion.h1>
+
           <motion.p
             className="text-lg text-gray-600"
             initial={{ opacity: 0, y: 10 }}
@@ -201,7 +209,8 @@ export default function AboutPage() {
           <p className="text-right text-blue-600 font-semibold">— The Governing Body</p>
         </motion.div>
       </motion.div>
-      <PrincipalMessage/>
+
+      <PrincipalMessage />
       <Footer />
     </>
   );

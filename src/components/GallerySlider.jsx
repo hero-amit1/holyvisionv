@@ -5,7 +5,7 @@ import "swiper/css";
 import "swiper/css/effect-coverflow";
 import "swiper/css/autoplay";
 
-// 📸 Your image imports
+// 🖼️ Replace with your real image imports
 import img1 from "../assets/22222.jpeg";
 import img2 from "../assets/555.jpeg";
 import img3 from "../assets/999.jpeg";
@@ -18,7 +18,20 @@ const GallerySlider = () => {
   const images = [img1, img2, img3, img4, img5, img6, img7];
 
   return (
-    <section className="w-full py-16 px-4 sm:px-6 bg-white">
+    <section className="w-full py-16 px-4 sm:px-6 bg-white relative">
+      {/* 💅 Shadow override injected directly */}
+      <style>
+        {`
+          .swiper-slide-shadow-left,
+          .swiper-slide-shadow-right {
+            background: rgba(0, 0, 0, 0.4) !important;
+            border-radius: 1rem;
+            filter: blur(6px);
+            transition: background 0.3s ease;
+          }
+        `}
+      </style>
+
       <h2 className="text-3xl sm:text-4xl font-bold text-center mb-10">
         <span className="text-blue-700">Explore</span>{" "}
         <span className="text-pink-600">Gallery</span>
@@ -32,31 +45,30 @@ const GallerySlider = () => {
           grabCursor={true}
           centeredSlides={true}
           loop={true}
-          slidesPerView="auto"
-          speed={4000} // how fast one full transition moves
+          slidesPerView={3}
+          speed={3500}
           autoplay={{
-            delay: 0, // ⚠️ this makes it continuous!
+            delay: 0,
             disableOnInteraction: false,
           }}
           coverflowEffect={{
-            rotate: 25,
+            rotate: 30,
             stretch: 0,
-            depth: 250,
-            modifier: 2.5,
-            slideShadows: false,
+            depth: 200,
+            modifier: 1,
+            slideShadows: true,
           }}
           className="gallerySwiper"
         >
           {images.map((img, index) => (
-            <SwiperSlide
-              key={index}
-              className="w-[250px] sm:w-[280px] md:w-[300px]"
-            >
-              <img
-                src={img}
-                alt={`Gallery ${index + 1}`}
-                className="rounded-2xl w-full h-64 object-cover shadow-xl border-4 border-white"
-              />
+            <SwiperSlide key={index}>
+              <div className="w-full h-64 sm:h-72 md:h-80">
+                <img
+                  src={img}
+                  alt={`Gallery ${index + 1}`}
+                  className="w-full h-full object-cover rounded-xl shadow-lg border-4 border-white"
+                />
+              </div>
             </SwiperSlide>
           ))}
         </Swiper>

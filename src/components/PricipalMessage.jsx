@@ -1,6 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
-import principalImage from "../assets/syringe.jpg"; // Replace with the actual image filename
+import principalImage from "../assets/work2.jpeg"; // Replace with the actual image filename
 
 const containerVariants = {
   hidden: { opacity: 0 },

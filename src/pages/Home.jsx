@@ -9,14 +9,15 @@ import Footer from '../components/Footer';
 import ServicesComponent from '../components/ServicesComponent ';
 import Reviews from '../components/Reviews';
 import DirectContactUs from '../components/DirectContact';
-import StaffInfo from '../components/StaffInfo';
+
 import CourseDetails from '../components/CourseDetails';
 import FAQComponent from '../components/FAQs';
 import ContactusComponent from '../components/ContactusComponent';
 import AboutIntandem from '../components/AboutComponent';
 import GallerySlider from '../components/GallerySlider';
-import Achievements from "../components/Achievements";
+
 import AchievementSection from "../components/Achievements";
+import BoardOfDirectors from "../components/StaffInfo";
 
 
 
@@ -39,15 +40,17 @@ const Home = () => {
         <InfoCards/>
      <CourseDetails/>
      <AboutIntandem/>
-        <StaffInfo/>
+     <ServicesComponent/>
+       <BoardOfDirectors/>
+       <AchievementSection/>
+       <FAQComponent/>
         <DirectContactUs/>
-        <ServicesComponent/>
-     
-    <ContactusComponent/>
-        <Contact />
-        <AchievementSection/>
-        <FAQComponent/>
         <GallerySlider/>
+        <Contact />
+    <ContactusComponent/>
+      
+       
+       
        
         <Reviews/>
         <Footer/>
