@@ -41,7 +41,7 @@ const ContactusComponent = () => {
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col ">
       <div className="flex-grow">
         <div className="p-8 text-center">
         <h1
