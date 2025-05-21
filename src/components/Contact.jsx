@@ -70,11 +70,11 @@ const Contact = () => {
             Telephone
           </h3>
          
-          <a href="tel:+015244745" className="text-center text-gray-700 hover:text-blue-500">
-01-5244745
+          <a href="tel:+9779851177317" className="text-center text-gray-700 hover:text-blue-500">
++9779851177317
           </a>
-          <a href="tel:+014793874" className="text-center text-gray-700 hover:text-blue-500">
-01-4793874
+          <a href="tel:+9779841847787" className="text-center text-gray-700 hover:text-blue-500">
++9779841847787
           </a>
         </div>
 

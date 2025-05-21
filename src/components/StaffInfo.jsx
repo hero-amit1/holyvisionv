@@ -7,12 +7,12 @@ const BoardOfDirectors = () => {
     { name: "Dr. Soni Mahato", role: "Executive Director" },
     { name: "Dr. Moni Mahto", role: "Board Member" },
     { name: "Dr. Sumintra Nakarmi", role: "Board Member" },
-    { name: "Mrs. Amrita Mahaseth", role: "Board Member, Holyvision Technical Campus" },
+    { name: "Mrs. Amrita Mahaseth", role: "Board Member" },
     { name: "Mrs. Urmila Bhattrai Baral", role: "Board Member" },
   ];
 
   return (
-    <section className="bg-gradient-to-b from-blue-50 to-white py-20 px-4 sm:px-10">
+    <section className="bg-gradient-to-b from-blue-50 to-white py-8 px-4 sm:px-10">
       <h2 className="text-4xl font-bold text-center mb-10">
         <span className="text-blue-600">Board</span>{" "}
         <span className="text-red-600">of Directors</span>

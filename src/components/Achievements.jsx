@@ -32,7 +32,11 @@ const CountUp = ({ end, suffix, triggerKey }) => {
     requestAnimationFrame(animate);
   }, [triggerKey, end]);
 
-  return <span>{count}{suffix}</span>;
+  return (
+    <span className="text-red-600 text-3xl font-extrabold drop-shadow-sm">
+      {count}{suffix}
+    </span>
+  );
 };
 
 // 💠 3D Diamond Card
@@ -57,7 +61,7 @@ const AchievementCard = ({ icon, label, value, suffix, color, delay }) => {
           {icon}
         </div>
         <h3 className="text-xs font-medium text-gray-600 text-center">{label}</h3>
-        <div className="mt-2 text-xl font-bold text-gray-900">
+        <div className="mt-2">
           <CountUp end={value} suffix={suffix} triggerKey={countKey} />
         </div>
       </div>
@@ -68,7 +72,7 @@ const AchievementCard = ({ icon, label, value, suffix, color, delay }) => {
 // 🚀 Main Section Component
 const AchievementSection = () => {
   return (
-    <section className="bg-blue-50 py-16 px-4 text-center">
+    <section className="bg-blue-50 py-10 px-4 text-center">
       <motion.h2
         className="text-4xl font-bold mb-4 text-gray-800"
         initial={{ opacity: 0, y: -20 }}
