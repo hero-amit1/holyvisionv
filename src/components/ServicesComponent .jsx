@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import graduateImg from "../assets/dj.jpg"; // Update with actual HVTC-related image
-import groupStudentsImg from "../assets/bb.jpg"; // Update with actual HVTC-related image
+import graduateImg from "../assets/career1.webp"; // Update with actual HVTC-related image
+import groupStudentsImg from "../assets/career2.webp"; // Update with actual HVTC-related image
 
 const ServicesSection = () => {
   useEffect(() => {
