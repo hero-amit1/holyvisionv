@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 // Course Images
-import generalMedicineImg from "../assets/gm.webp";
-import pharmacyImg from "../assets/pharmacy.webp";
-import nursingImg from "../assets/nursing.webp";
-import caregiverImg from "../assets/caregiver.webp";
+import generalMedicineImg from "../assets/gm.jpg";
+import pharmacyImg from "../assets/pharmacy.jpg";
+import nursingImg from "../assets/nursing.jpg";
+import caregiverImg from "../assets/caregiver.jpg";
 
 // Course Icons (Flag Style)
 import generalMedicineIcon from "../assets/red.jpg";
