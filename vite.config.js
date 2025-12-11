@@ -15,15 +15,14 @@ export default defineConfig({
     rollupOptions: {
       output: {
         manualChunks(id) {
-          if (id.includes("react")) return "react-vendor";
-          if (id.includes("node_modules")) return "vendor";
+          if (id.includes("node_modules/react")) {
+            return "react-vendor";
+          }
+          if (id.includes("node_modules")) {
+            return "vendor";
+          }
         }
       }
     }
-  },
-
-  server: {
-    host: true,
-    port: 5173
   }
 });
