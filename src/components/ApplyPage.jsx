@@ -1,5 +1,7 @@
 import React, { useState } from "react";
+import emailjs from "emailjs-com";
 import NavbarMain from "./NavbarMain";
+
 // Reusable Input Field
 const InputField = ({ label, type = "text", name, value, onChange }) => (
   <div>
@@ -10,6 +12,7 @@ const InputField = ({ label, type = "text", name, value, onChange }) => (
       value={value}
       onChange={onChange}
       className="w-full border p-2 rounded mt-1"
+      required
     />
   </div>
 );
@@ -23,6 +26,7 @@ const SelectField = ({ label, name, value, onChange, options = [] }) => (
       value={value}
       onChange={onChange}
       className="w-full border p-2 rounded mt-1"
+      required
     >
       <option value="">Select {label}</option>
       {options.map((opt, idx) => (
@@ -54,6 +58,8 @@ export default function AdmissionInquiryForm() {
     guardianContact: "",
   });
 
+  const [status, setStatus] = useState(null); // success or fail message
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
@@ -61,9 +67,40 @@ export default function AdmissionInquiryForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form Data Submitted:", formData);
-    // Placeholder: Replace with actual API call
-    alert("Form submitted successfully!");
+
+    emailjs
+      .send(
+        "YOUR_SERVICE_ID",
+        "YOUR_TEMPLATE_ID",
+        formData,
+        "YOUR_PUBLIC_KEY"
+      )
+      .then(
+        () => {
+          setStatus("success");
+          setFormData({
+            name: "",
+            gender: "",
+            dob: "",
+            fatherName: "",
+            motherName: "",
+            municipality: "",
+            ward: "",
+            district: "",
+            province: "",
+            schoolName: "",
+            graduationYear: "",
+            percentage: "",
+            gpa: "",
+            program: "",
+            applicantContact: "",
+            guardianContact: "",
+          });
+        },
+        () => {
+          setStatus("fail");
+        }
+      );
   };
 
   const genderOptions = ["Male", "Female", "Other"];
@@ -80,8 +117,10 @@ export default function AdmissionInquiryForm() {
   return (
     <>
       <NavbarMain />
+
       <div className="pt-[120px] mb-7">
         <div className="max-w-4xl mx-auto p-6 bg-white shadow-xl rounded-xl border mt-10">
+
           {/* Header */}
           <div className="text-center border-b pb-4 mb-6">
             <img src="/logo.png" alt="logo" className="h-20 mx-auto mb-2" />
@@ -90,6 +129,18 @@ export default function AdmissionInquiryForm() {
             <p className="text-sm font-semibold">New-Baneshwor, Kathmandu</p>
             <h2 className="text-xl font-bold mt-4">Admission Inquiry Form</h2>
           </div>
+
+          {/* Status Message */}
+          {status === "success" && (
+            <p className="text-green-600 font-semibold mb-4 text-center">
+              ✔️ Form submitted successfully!
+            </p>
+          )}
+          {status === "fail" && (
+            <p className="text-red-600 font-semibold mb-4 text-center">
+              ❌ Failed to submit. Please try again.
+            </p>
+          )}
 
           {/* Form */}
           <form className="space-y-4" onSubmit={handleSubmit}>
@@ -218,7 +269,6 @@ export default function AdmissionInquiryForm() {
           </form>
         </div>
       </div>
-      
     </>
   );
 }
